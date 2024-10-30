@@ -1,7 +1,11 @@
-import formats from './formats/index.ts';
+import formats, { type Ajv2019Formats } from './formats/index.ts';
 import type { Ajv } from 'ajv';
 
-export default (ajv: Ajv, options = {}) => {
+type Options = {
+  formats?: string[];
+};
+
+export default (ajv: Ajv, options: Options = {}) => {
   const allFormats = Object.keys(formats);
   let formatsToInstall = allFormats;
 
@@ -14,7 +18,7 @@ export default (ajv: Ajv, options = {}) => {
   allFormats
     .filter((format) => formatsToInstall.includes(format))
     .forEach((key) => {
-      ajv.addFormat(key, formats[key]);
+      ajv.addFormat(key, formats[key as keyof Ajv2019Formats]);
     });
 
   return ajv;

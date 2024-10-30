@@ -1,8 +1,10 @@
 import 'https://deno.land/x/deno_mocha/global.ts';
+import formats from './formats/index.ts';
+import idn from './idn.ts';
 import * as chai from 'npm:chai';
-import Ajv from 'npm:ajv';
+import { Ajv, type Format } from 'npm:ajv';
 
-import appy from './index.js';
+import apply from './index.ts';
 
 const assert = chai.assert;
 
@@ -18,7 +20,6 @@ describe('load types', function () {
   });
 
   it('add the types to ajv as options to Ajv instances', function () {
-    const formats = require('./formats');
     const ajv = new Ajv({ formats });
     assert.ok(ajv.formats.duration);
     assert.ok(ajv.formats.iri);
@@ -62,7 +63,7 @@ describe('load types', function () {
       type: 'string',
       format: 'iri',
     };
-    var validate = ajv.compile(schema);
+    const validate = ajv.compile(schema);
     assert.ok(!validate('example.com')); // missing a scheme
     assert.ok(!validate('invalidScheme://example.com')); // an invalid scheme
     assert.ok(!validate('this:that'));
@@ -80,7 +81,7 @@ describe('load types', function () {
       type: 'string',
       format: 'duration',
     };
-    var validate = ajv.compile(schema);
+    const validate = ajv.compile(schema);
     assert.ok(validate('P1Y2M4DT20H44M12.67S'));
   });
 
@@ -92,7 +93,7 @@ describe('load types', function () {
       type: 'string',
       format: 'duration',
     };
-    var validate = ajv.compile(schema);
+    const validate = ajv.compile(schema);
     assert.ok(!validate('10 seconds'));
   });
 
@@ -121,42 +122,9 @@ describe('load types', function () {
       type: 'string',
       format: 'idn-email',
     };
-    var validate = ajv.compile(schema);
+    const validate = ajv.compile(schema);
     assert.ok(!validate('johndoe'));
     assert.ok(!validate('valid@somewhere.com?asdf'));
-  });
-
-  // skipped because of https://github.com/luzlab/ajv-formats-draft2019/issues/14
-  it.skip('accept valid uuids', function () {
-    const ajv = new Ajv();
-    apply(ajv);
-
-    const schema = {
-      type: 'string',
-      format: 'uuid',
-    };
-    const validate = ajv.compile(schema);
-
-    // examples from https://www.uuidgenerator.net/version4
-    assert.ok(validate('90e89155-4c0d-4942-a804-a610ccb76b1b'));
-    assert.ok(validate('55e9b1aa-cff4-43fe-8c66-bdd190720360'));
-
-    // examples from https://www.uuidgenerator.net/version1
-    assert.ok(validate('e1a4973e-395b-11ea-a137-2e728ce88125'));
-  });
-
-  // skipped because of https://github.com/luzlab/ajv-formats-draft2019/issues/14
-  it.skip('reject invalid uuids', function () {
-    const ajv = new Ajv();
-    apply(ajv);
-
-    const schema = {
-      type: 'string',
-      format: 'uuid',
-    };
-    var validate = ajv.compile(schema);
-    assert.ok(!validate('90e89155-4c0d-4942-a804-a610ccb76b1b1'));
-    assert.ok(!validate('55e9b1aa-cff4-43fe-8c66-bdg190720360'));
   });
 
   it('accept valid international domains', function () {
@@ -213,7 +181,7 @@ describe('load types', function () {
       type: 'string',
       format: 'idn-hostname',
     };
-    var validate = ajv.compile(schema);
+    const validate = ajv.compile(schema);
 
     // bad tld
 
@@ -295,7 +263,7 @@ describe('load types', function () {
       type: 'string',
       format: 'iri-reference',
     };
-    var validate = ajv.compile(schema);
+    const validate = ajv.compile(schema);
 
     // https://tools.ietf.org/html/rfc3986#section-4.2
     assert.ok(!validate('this:that'));
@@ -305,12 +273,10 @@ describe('load types', function () {
   });
 
   it('idn should not include the duration format', function () {
-    const draft07 = require('./idn');
-    assert.ok(!draft07.duration);
+    assert.ok(!formats.duration);
   });
 
   it('draft07 should include the correct formats', function () {
-    const idn = require('./idn');
     assert.ok(idn['idn-hostname']);
     assert.ok(idn['idn-email']);
     assert.ok(idn['iri']);
@@ -318,8 +284,7 @@ describe('load types', function () {
   });
 
   it('add the idn types to ajv as options to Ajv instances', function () {
-    const formats = require('./idn');
-    const ajv = new Ajv({ formats });
+    const ajv = new Ajv({ formats: idn });
     assert.ok(!ajv.formats.duration);
     assert.ok(ajv.formats.iri);
     assert.ok(ajv.formats['idn-email']);
@@ -328,9 +293,12 @@ describe('load types', function () {
   });
 
   it('it should be possible to cherry pick formats to install', function () {
-    const { duration, iri } = require('./formats');
-
-    const ajv = new Ajv({ formats: { duration, iri } });
+    const ajv = new Ajv({
+      formats: {
+        duration: formats.duration,
+        iri: formats.iri
+      }
+    });
 
     assert.ok(ajv.formats.duration);
     assert.ok(ajv.formats.iri);

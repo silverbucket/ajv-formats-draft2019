@@ -1,7 +1,9 @@
 {
   "version": "4",
   "specifiers": {
+    "npm:ajv@*": "8.17.1",
     "npm:ajv@^8.17.1": "8.17.1",
+    "npm:chai@*": "5.1.2",
     "npm:prettier@2.8.8": "2.8.8",
     "npm:prettier@^2.3.2": "2.8.8",
     "npm:punycode@^2.3.1": "2.3.1",
@@ -19,8 +21,27 @@
         "require-from-string"
       ]
     },
+    "assertion-error@2.0.1": {
+      "integrity": "sha512-Izi8RQcffqCeNVgFigKli1ssklIbpHnCYc6AknXGYoB6grJqyeby7jv12JUQgmTAnIDnbck1uxksT4dzN3PWBA=="
+    },
+    "chai@5.1.2": {
+      "integrity": "sha512-aGtmf24DW6MLHHG5gCx4zaI3uBq3KRtxeVs0DjFH6Z0rDNbsvTxFASFvdj79pxjxZ8/5u3PIiN3IwEIQkiiuPw==",
+      "dependencies": [
+        "assertion-error",
+        "check-error",
+        "deep-eql",
+        "loupe",
+        "pathval"
+      ]
+    },
+    "check-error@2.1.1": {
+      "integrity": "sha512-OAlb+T7V4Op9OwdkjmguYRqncdlx5JiofwOAUkmTF+jNdHwzTaTs4sRAGpzLF3oOz5xAyDGrPgeIDFQmDOTiJw=="
+    },
     "commander@2.20.3": {
       "integrity": "sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ=="
+    },
+    "deep-eql@5.0.2": {
+      "integrity": "sha512-h5k/5U50IJJFpzfL6nO9jaaumfjO/f2NjK/oYB2Djzm4p9L+3T9qWpZqZ2hAbLPuuYq9wrU08WQyBTL5GbPk5Q=="
     },
     "discontinuous-range@1.0.0": {
       "integrity": "sha512-c68LpLbO+7kP/b1Hr1qs8/BJ09F5khZGTxqxZuhzxpmwJKOgRFHJWIb9/KmqnqHhLdO55aOxFH/EGBvUQbL/RQ=="
@@ -37,6 +58,9 @@
     "json-schema-traverse@1.0.0": {
       "integrity": "sha512-NM8/P9n3XjXhIZn1lLhkFaACTOURQXjWhV4BA/RnOv8xvgqtqpAX9IO4mRQxSx1Rlo4tqzeqb0sOlruaOy3dug=="
     },
+    "loupe@3.1.2": {
+      "integrity": "sha512-23I4pFZHmAemUnz8WZXbYRSKYj801VDaNv9ETuMh7IrMc7VuVVSo+Z9iLE3ni30+U48iDWfi30d3twAXBYmnCg=="
+    },
     "moo@0.5.2": {
       "integrity": "sha512-iSAJLHYKnX41mKcJKjqvnAN9sf0LMDTXDEvFv+ffuRR9a1MIuXLjMNL6EsnDHSkKLTWNqQQ5uo61P4EbU4NU+Q=="
     },
@@ -48,6 +72,9 @@
         "railroad-diagrams",
         "randexp"
       ]
+    },
+    "pathval@2.0.0": {
+      "integrity": "sha512-vE7JKRyES09KiunauX7nd2Q9/L7lhok4smP9RZTDeD4MVs72Dp2qNFVz39Nz5a0FVEW0BJR6C0DYrq6unoziZA=="
     },
     "prettier@2.8.8": {
       "integrity": "sha512-tdN8qQGvNjw4CHbY+XXk0JgCXn9QiF21a55rBe5LJAU+kDyC4WQn4+awm2Xfk2lQMk5fKup9XgzTZtGkjBdP9Q=="
@@ -89,6 +116,15 @@
         "punycode"
       ]
     }
+  },
+  "redirects": {
+    "https://deno.land/x/deno_mocha/global.ts": "https://deno.land/x/deno_mocha@0.3.1/global.ts"
+  },
+  "remote": {
+    "https://deno.land/x/deno_mocha@0.3.1/global.ts": "b1b948efbed3739147f68b815efe1a3e9cd699d3a4e02c3a8657f18ef5a597bf",
+    "https://deno.land/x/deno_mocha@0.3.1/lib/bdd.ts": "c6fc49113b7724876e61e133019bf2ab79c5d1f3aa17303a8e34d2d0331c8d86",
+    "https://deno.land/x/deno_mocha@0.3.1/lib/types.ts": "fbe984308b6bf4e264edcd2b75dfc74a288dc04932ced49461535aee25cfb368",
+    "https://deno.land/x/deno_mocha@0.3.1/mod.ts": "22095a9ad953ba9b24204be4828b363491d465879b70a462becbdb240f8a224c"
   },
   "workspace": {
     "dependencies": [
