@@ -1,5 +1,5 @@
-import formats from "./formats/index.ts";
-import type { Ajv } from "ajv";
+import formats from './formats/index.ts';
+import type { Ajv } from 'ajv';
 
 export default (ajv: Ajv, options = {}) => {
   const allFormats = Object.keys(formats);

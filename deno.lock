@@ -2,6 +2,7 @@
   "version": "4",
   "specifiers": {
     "npm:ajv@^8.17.1": "8.17.1",
+    "npm:prettier@2.8.8": "2.8.8",
     "npm:prettier@^2.3.2": "2.8.8",
     "npm:punycode@^2.3.1": "2.3.1",
     "npm:schemes@^1.4.0": "1.4.0",

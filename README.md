@@ -128,7 +128,8 @@ The string is checked against a regex.
 
 ### `v1.6.1`
 
-- Updated `schemes` dependency, adding support for `modbus+tcp` and `mqtt` in URIs.
+- Updated `schemes` dependency, adding support for `modbus+tcp` and `mqtt` in
+  URIs.
 
 ### `v1.6.0`
 
