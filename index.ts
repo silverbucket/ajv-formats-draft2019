@@ -1,6 +1,7 @@
-const formats = require('./formats');
+import formats from "./formats/index.ts";
+import type { Ajv } from "ajv";
 
-module.exports = (ajv, options = {}) => {
+export default (ajv: Ajv, options = {}) => {
   const allFormats = Object.keys(formats);
   let formatsToInstall = allFormats;
 

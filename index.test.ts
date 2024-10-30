@@ -1,6 +1,10 @@
-const assert = require('assert');
-const apply = require('./index.js');
-const Ajv = require('ajv').default;
+import "https://deno.land/x/deno_mocha/global.ts";
+import * as chai from "npm:chai";
+import Ajv from 'npm:ajv';
+
+import appy from './index.js';
+
+const assert = chai.assert;
 
 describe('load types', function () {
   it('add the types to ajv with the apply function', function () {

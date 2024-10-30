@@ -1,17 +1,17 @@
-const { parse } = require('uri-js');
-const addressParser = require('smtp-address-parser').parse;
-const schemes = require('schemes');
+import { parse } from 'uri-js';
+import { parse as addressParser } from 'smtp-address-parser';
+import schemes from 'schemes';
 
-function validate(address) {
+function validate(address: string) {
   try {
     addressParser(address);
     return true;
-  } catch (err) {
+  } catch (_) {
     return false;
   }
 }
 
-module.exports = (value) => {
+export default (value: string) => {
   const iri = parse(value);
   // All valid IRIs are valid IRI-references
   if (iri.scheme === 'mailto' && iri.to.every(validate)) {
