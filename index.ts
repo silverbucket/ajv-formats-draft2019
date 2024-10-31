@@ -5,7 +5,7 @@ type Options = {
   formats?: string[];
 };
 
-export default (ajv: Ajv, options: Options = {}) => {
+export default (ajv: Ajv, options: Options = {}): Ajv => {
   const allFormats = Object.keys(formats);
   let formatsToInstall = allFormats;
 
