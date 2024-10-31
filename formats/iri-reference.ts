@@ -11,7 +11,7 @@ function validate(address: string) {
   }
 }
 
-function every (obj: URIComponents) {
+function every(obj: URIComponents) {
   for (const prop in obj) {
     if (!validate(obj[prop as keyof URIComponents] as string)) {
       return false;

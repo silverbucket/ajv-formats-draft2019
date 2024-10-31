@@ -3,10 +3,10 @@ import duration from './duration.ts';
 import idnEmail from './idn-email.ts';
 import idnHostname from './idn-hostname.ts';
 import iriReference from './iri-reference.ts';
-import type { Format } from "ajv";
+import type { Format } from 'ajv';
 
 export type Ajv2019Formats = {
-    [keys: string]: Format
+  [keys: string]: Format;
 };
 
 const formats: Ajv2019Formats = {

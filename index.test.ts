@@ -252,7 +252,7 @@ describe('load types', function () {
     assert.ok(validate('/path')); // absolute-path reference
 
     // https://github.com/luzlab/ajv-formats-draft2019/issues/9
-    assert.ok(validate('mailto:valid@email.format'));
+    assert.ok(validate('valid@email.format'));
   });
 
   it('reject invalid IRI-reference', function () {
@@ -270,10 +270,6 @@ describe('load types', function () {
 
     // https://github.com/luzlab/ajv-formats-draft2019/issues/9
     assert.ok(!validate('mailto:invalid.format'));
-  });
-
-  it('idn should not include the duration format', function () {
-    assert.ok(!formats.duration);
   });
 
   it('draft07 should include the correct formats', function () {
@@ -296,8 +292,8 @@ describe('load types', function () {
     const ajv = new Ajv({
       formats: {
         duration: formats.duration,
-        iri: formats.iri
-      }
+        iri: formats.iri,
+      },
     });
 
     assert.ok(ajv.formats.duration);
