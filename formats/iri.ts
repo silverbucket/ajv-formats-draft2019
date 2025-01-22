@@ -1,6 +1,6 @@
-import uri, { type URIComponents } from 'uri-js';
-import smtpAddress from 'smtp-address-parser';
-import schemes from 'schemes';
+import uri, { type URIComponents } from "uri-js";
+import smtpAddress from "smtp-address-parser";
+import schemes from "schemes";
 
 function validate(address: string) {
   try {
@@ -21,11 +21,11 @@ function every(obj: URIComponents) {
 
 export default (value: string) => {
   const iri = uri.parse(value);
-  if (iri.scheme === 'mailto' && every(iri)) {
+  if (iri.scheme === "mailto" && every(iri)) {
     return true;
   }
   return !!(
-    (iri.reference === 'absolute' || iri.reference === 'uri') &&
+    (iri.reference === "absolute" || iri.reference === "uri") &&
     schemes.allByName[iri.scheme]
   );
 };

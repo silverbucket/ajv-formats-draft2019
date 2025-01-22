@@ -1,4 +1,4 @@
-import { parse } from 'smtp-address-parser';
+import { parse } from "smtp-address-parser";
 
 export default (value: string) => {
   try {

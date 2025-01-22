@@ -26,43 +26,43 @@ The default export is an `apply` function that patches an existing instance of
 `ajv`.
 
 ```js
-const Ajv = require('ajv');
-const apply = require('ajv-formats-draft2019');
+const Ajv = require("ajv");
+const apply = require("ajv-formats-draft2019");
 const ajv = new Ajv();
 apply(ajv); // returns ajv instance, allowing chaining
 
 let schema = {
-  type: 'string',
-  format: 'idn-email',
+  type: "string",
+  format: "idn-email",
 };
-ajv.validate(schema, 'квіточка@пошта.укр'); // returns true
+ajv.validate(schema, "квіточка@пошта.укр"); // returns true
 ```
 
 The `apply` function also accepts a second optional parameter to specify which
 formats to add to the `ajv` instance.
 
 ```js
-const Ajv = require('ajv');
-const apply = require('ajv-formats-draft2019');
+const Ajv = require("ajv");
+const apply = require("ajv-formats-draft2019");
 const ajv = new Ajv();
 
 // Install only the idn-email and iri formats
-apply(ajv, { formats: ['idn-email', 'iri'] });
+apply(ajv, { formats: ["idn-email", "iri"] });
 ```
 
 The module also provides an alternate entrypoint `ajv-formats-draft2019/formats`
 that works with the `ajv` constructor to add the formats to new instances.
 
 ```js
-const Ajv = require('ajv');
-const formats = require('ajv-formats-draft2019/formats');
+const Ajv = require("ajv");
+const formats = require("ajv-formats-draft2019/formats");
 const ajv = new Ajv({ formats });
 
 let schema = {
-  type: 'string',
-  format: 'idn-email',
+  type: "string",
+  format: "idn-email",
 };
-ajv.validate(schema, 'квіточка@пошта.укр'); // returns true
+ajv.validate(schema, "квіточка@пошта.укр"); // returns true
 ```
 
 Using the `ajv-formats-draft2019/formats` entry point also allows cherry picking
@@ -71,8 +71,8 @@ hypen `-` in the name. This approach may yield smaller packed bundles since it
 allows tree-shaking to remove unwanted validators and related dependencies.
 
 ```js
-const Ajv = require('ajv');
-const { duration, iri } = require('ajv-formats-draft2019/formats');
+const Ajv = require("ajv");
+const { duration, iri } = require("ajv-formats-draft2019/formats");
 const ajv = new Ajv({ formats: { duration, iri } });
 ```
 
@@ -82,8 +82,8 @@ The library also provides an `idn` export to load only the international formats
 (ie. `iri`, `iri-reference`, `idn-hostname` and `idn-email`).
 
 ```js
-const Ajv = require('ajv');
-const formats = require('ajv-formats-draft2019/idn');
+const Ajv = require("ajv");
+const formats = require("ajv-formats-draft2019/idn");
 const ajv = new Ajv({ formats });
 ```
 

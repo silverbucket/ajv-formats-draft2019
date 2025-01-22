@@ -4,8 +4,6 @@
     "npm:ajv@*": "8.17.1",
     "npm:ajv@^8.17.1": "8.17.1",
     "npm:chai@*": "5.1.2",
-    "npm:prettier@2.8.8": "2.8.8",
-    "npm:prettier@^2.3.2": "2.8.8",
     "npm:punycode@^2.3.1": "2.3.1",
     "npm:schemes@^1.4.0": "1.4.0",
     "npm:smtp-address-parser@^1.0.3": "1.1.0",
@@ -76,9 +74,6 @@
     "pathval@2.0.0": {
       "integrity": "sha512-vE7JKRyES09KiunauX7nd2Q9/L7lhok4smP9RZTDeD4MVs72Dp2qNFVz39Nz5a0FVEW0BJR6C0DYrq6unoziZA=="
     },
-    "prettier@2.8.8": {
-      "integrity": "sha512-tdN8qQGvNjw4CHbY+XXk0JgCXn9QiF21a55rBe5LJAU+kDyC4WQn4+awm2Xfk2lQMk5fKup9XgzTZtGkjBdP9Q=="
-    },
     "punycode@2.3.1": {
       "integrity": "sha512-vYt7UD1U9Wg6138shLtLOvdAu+8DsC/ilFtEVHcH+wydcSpNE20AfSOduf6MkRFahL5FY7X1oU7nKVZFtfq8Fg=="
     },
@@ -129,7 +124,6 @@
   "workspace": {
     "dependencies": [
       "npm:ajv@^8.17.1",
-      "npm:prettier@^2.3.2",
       "npm:punycode@^2.3.1",
       "npm:schemes@^1.4.0",
       "npm:smtp-address-parser@^1.0.3",
