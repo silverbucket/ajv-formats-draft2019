@@ -6,7 +6,11 @@ Currently, `iri`, `iri-reference`, `idn-email`, `idn-hostname`, and `duration`
 formats are supported. `duration` was added in draft 2019. The `uuid` format was
 added in draft2019, but is already supported by the `ajv-formats` package.
 
-[![Node.js CI](https://github.com/luzlab/ajv-formats-draft2019/actions/workflows/node.js.yml/badge.svg)](https://github.com/luzlab/ajv-formats-draft2019/actions/workflows/node.js.yml)
+[![Node.js CI](https://github.com/silverbucket/ajv-formats-draft2019/actions/workflows/node.js.yml/badge.svg)](https://github.com/silverbucket/ajv-formats-draft2019/actions/workflows/node.js.yml)
+
+:warning: **This repo was forked and modified for publishing via. JSR for Deno.
+Not all documentation here has been updated for TypeScript/Deno. The original
+repository appears inactive https://github.com/luzlab/ajv-formats-draft2019**
 
 ## Using international formats with pre-draft2019 JSON schemas
 
@@ -17,7 +21,7 @@ been warned...
 ## Installation
 
 ```sh
-npm install --save ajv-formats-draft2019
+deno add @silverbucket/ajv-formats-draft2019
 ```
 
 ## Usage
@@ -26,10 +30,13 @@ The default export is an `apply` function that patches an existing instance of
 `ajv`.
 
 ```js
-const Ajv = require("ajv");
-const apply = require("ajv-formats-draft2019");
-const ajv = new Ajv();
-apply(ajv); // returns ajv instance, allowing chaining
+import Ajv from "ajv";
+import addFormats from "ajv-formats";
+import additionsFormats2019 from "@silverbucket/ajv-formats-draft2019";
+
+const ajv = new Ajv.default({ strictTypes: false, allErrors: true });
+addFormats.default(ajv);
+additionsFormats2019(ajv);
 
 let schema = {
   type: "string",
@@ -42,12 +49,15 @@ The `apply` function also accepts a second optional parameter to specify which
 formats to add to the `ajv` instance.
 
 ```js
-const Ajv = require("ajv");
-const apply = require("ajv-formats-draft2019");
-const ajv = new Ajv();
+import Ajv from "ajv";
+import addFormats from "ajv-formats";
+import additionsFormats2019 from "@silverbucket/ajv-formats-draft2019";
+
+const ajv = new Ajv.default({ strictTypes: false, allErrors: true });
+addFormats.default(ajv);
 
 // Install only the idn-email and iri formats
-apply(ajv, { formats: ["idn-email", "iri"] });
+additionsFormats2019(ajv, { formats: ["idn-email", "iri"] });
 ```
 
 The module also provides an alternate entrypoint `ajv-formats-draft2019/formats`
