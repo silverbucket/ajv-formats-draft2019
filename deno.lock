@@ -5,7 +5,7 @@
     "npm:ajv@*": "8.17.1",
     "npm:ajv@^8.17.1": "8.17.1",
     "npm:chai@*": "5.1.2",
-    "npm:punycode@^2.3.1": "2.3.1",
+    "npm:punycode-esm@^1.0.14": "1.0.14",
     "npm:smtp-address-parser@^1.1.0": "1.1.0",
     "npm:uri-js-replace@^1.0.1": "1.0.1"
   },
@@ -76,8 +76,8 @@
     "pathval@2.0.0": {
       "integrity": "sha512-vE7JKRyES09KiunauX7nd2Q9/L7lhok4smP9RZTDeD4MVs72Dp2qNFVz39Nz5a0FVEW0BJR6C0DYrq6unoziZA=="
     },
-    "punycode@2.3.1": {
-      "integrity": "sha512-vYt7UD1U9Wg6138shLtLOvdAu+8DsC/ilFtEVHcH+wydcSpNE20AfSOduf6MkRFahL5FY7X1oU7nKVZFtfq8Fg=="
+    "punycode-esm@1.0.14": {
+      "integrity": "sha512-pKUd7mE81Sm2c363H+znT92N78Xjsb01gqboYj2fFmD+7HveGyVlpLzP38MrfbIcIN9KjN7LCzMcncW1tIsweA=="
     },
     "railroad-diagrams@1.0.0": {
       "integrity": "sha512-cz93DjNeLY0idrCNOH6PviZGRN9GJhsdm9hpn1YCS879fj4W+x5IFJhhkRZcwVgMmFF7R82UA/7Oh+R8lLZg6A=="
@@ -118,7 +118,7 @@
     "dependencies": [
       "jsr:@silverbucket/iana-schemes@^1.4.2",
       "npm:ajv@^8.17.1",
-      "npm:punycode@^2.3.1",
+      "npm:punycode-esm@^1.0.14",
       "npm:smtp-address-parser@^1.1.0",
       "npm:uri-js-replace@^1.0.1"
     ]

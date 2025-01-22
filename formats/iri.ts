@@ -8,7 +8,6 @@ function validate(address: string): boolean {
     smtpAddress.parse(address);
     return true;
   } catch (_) {
-    console.log(`err: ${_}`);
     return false;
   }
 }
