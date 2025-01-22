@@ -1,8 +1,12 @@
-import { parse, type URIComponents } from "uri-js";
+import { parse, type URIComponents } from "uri-js-replace";
 import { parse as addressParser } from "smtp-address-parser";
-import schemes from "schemes";
+import schemes from "iana-schemes";
 
-function validate(address: string) {
+export interface LocalURIComponents extends URIComponents {
+  scheme: string;
+}
+
+function validate(address: string): boolean {
   try {
     addressParser(address);
     return true;
@@ -20,12 +24,13 @@ function every(obj: URIComponents) {
 }
 
 export default (value: string) => {
-  const iri = parse(value);
+  const iri = parse(value) as LocalURIComponents;
   // All valid IRIs are valid IRI-references
   if (iri.scheme === "mailto" && every(iri)) {
     return true;
   }
 
+  // Check for valid IRI-reference
   if (
     iri.reference === "absolute" &&
     iri.path !== undefined &&

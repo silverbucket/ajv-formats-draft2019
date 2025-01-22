@@ -1,12 +1,14 @@
-import uri, { type URIComponents } from "uri-js";
+import uri, { type URIComponents } from "uri-js-replace";
 import smtpAddress from "smtp-address-parser";
-import schemes from "schemes";
+import schemes from "iana-schemes";
+import type { LocalURIComponents } from "./iri-reference.ts";
 
-function validate(address: string) {
+function validate(address: string): boolean {
   try {
     smtpAddress.parse(address);
     return true;
   } catch (_) {
+    console.log(`err: ${_}`);
     return false;
   }
 }
@@ -20,7 +22,7 @@ function every(obj: URIComponents) {
 }
 
 export default (value: string) => {
-  const iri = uri.parse(value);
+  const iri = uri.parse(value) as LocalURIComponents;
   if (iri.scheme === "mailto" && every(iri)) {
     return true;
   }
