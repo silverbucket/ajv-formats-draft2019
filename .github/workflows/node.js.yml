@@ -15,7 +15,7 @@ jobs:
         deno-version: [2.1.7]
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Use Deno Version ${{ matrix.deno-version }}
         uses: denolib/setup-deno@v2
