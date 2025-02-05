@@ -5,7 +5,9 @@
   "exports": "./index.ts",
   "tasks": {
     "coverage": "deno coverage | deno run jsr:@silverbucket/threshold 77 93",
-    "test": "deno test --fail-fast --coverage --clean --allow-env --allow-read *.test.ts"
+    "test": "deno test --fail-fast --coverage --clean --allow-env --allow-read *.test.ts",
+    "build:npm": "deno run -A scripts/build_npm.ts",
+    "publish:npm": "cd npm && npm publish && cd .."
   },
   "license": "MIT",
   "imports": {
