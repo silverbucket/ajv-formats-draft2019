@@ -1,6 +1,6 @@
 import uri, { type URIComponents } from "uri-js-replace";
 import smtpAddress from "smtp-address-parser";
-import schemes from "iana-schemes";
+import schemes from "@silverbucket/iana-schemes";
 import type { LocalURIComponents } from "./iri-reference.ts";
 
 function validate(address: string): boolean {

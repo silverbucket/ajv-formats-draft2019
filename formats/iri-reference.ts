@@ -1,9 +1,11 @@
 import { parse, type URIComponents } from "uri-js-replace";
 import { parse as addressParser } from "smtp-address-parser";
-import schemes from "iana-schemes";
+import schemes from "@silverbucket/iana-schemes";
 
 export interface LocalURIComponents extends URIComponents {
   scheme: string;
+  reference: string;
+  path: string;
 }
 
 function validate(address: string): boolean {
