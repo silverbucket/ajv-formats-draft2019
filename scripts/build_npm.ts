@@ -4,11 +4,12 @@ import deno from "../deno.json" with { type: "json" };
 await emptyDir("./npm");
 
 await build({
+  typeCheck: "both",
   entryPoints: ["./index.ts"],
   outDir: "./npm",
   shims: {
-    // see JS docs for overview and more options
-    deno: true,
+    deno: "dev",
+    timers: true
   },
   package: {
     // package.json properties
