@@ -12,7 +12,7 @@
   },
   "main": "./index.ts",
   "scripts": {
-    "build": "bun test && rm -r dist/ && bun run build.js && bun test dist/index.test.js"
+    "build": "bun test src/ && rm -r dist/; bun run build.js && bun test dist/index.test.js"
   },
   "dependencies": {
     "@silverbucket/iana-schemes": "^1.4.4",

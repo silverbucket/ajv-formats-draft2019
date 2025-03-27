@@ -1,6 +1,6 @@
 import { Glob } from "bun";
 
-const sourceDirectory = "./";
+const sourceDirectory = "./src/";
 const glob = new Glob('*.ts');
 var entrypoints = [...glob.scanSync(sourceDirectory)];
 entrypoints = entrypoints.map((x) => sourceDirectory + x);
