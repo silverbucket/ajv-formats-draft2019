@@ -4,15 +4,13 @@ import deno from "../deno.json" with { type: "json" };
 await emptyDir("./npm");
 
 await build({
-  typeCheck: "both",
+  typeCheck: false,
   entryPoints: ["./index.ts"],
   outDir: "./npm",
   shims: {
-    deno: "dev",
-    timers: true
+    deno: true,
   },
   package: {
-    // package.json properties
     name: deno.name,
     version: deno.version,
     description: deno.description,
@@ -24,9 +22,13 @@ await build({
     bugs: {
       url: "https://github.com/silverbucket/ajv-formats-draft2019/issues",
     },
+    dependencies: {
+      "@silverbucket/iana-schemes": "^1.4.4",
+      "uri-js-replace": "^1.0.1",
+      "smtp-address-parser": "^1.1.0",
+    }
   },
   postBuild() {
-    // steps to run after building and before running the tests
     Deno.copyFileSync("LICENSE", "npm/LICENSE");
     Deno.copyFileSync("README.md", "npm/README.md");
   },

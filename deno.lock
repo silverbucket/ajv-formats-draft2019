@@ -5,20 +5,15 @@
     "jsr:@deno/cache-dir@~0.10.3": "0.10.3",
     "jsr:@deno/dnt@~0.41.3": "0.41.3",
     "jsr:@deno/graph@~0.73.1": "0.73.1",
-    "jsr:@silverbucket/iana-schemes@^1.4.2": "1.4.2",
-    "jsr:@std/assert@*": "0.226.0",
+    "jsr:@silverbucket/iana-schemes@^1.4.4": "1.4.4",
     "jsr:@std/assert@0.223": "0.223.0",
     "jsr:@std/assert@0.226": "0.226.0",
-    "jsr:@std/assert@^1.0.11": "1.0.11",
     "jsr:@std/bytes@0.223": "0.223.0",
-    "jsr:@std/expect@*": "1.0.13",
     "jsr:@std/fmt@0.223": "0.223.0",
-    "jsr:@std/fmt@1": "1.0.5",
+    "jsr:@std/fmt@1": "1.0.6",
     "jsr:@std/fs@0.223": "0.223.0",
-    "jsr:@std/fs@1": "1.0.11",
+    "jsr:@std/fs@1": "1.0.15",
     "jsr:@std/fs@~0.229.3": "0.229.3",
-    "jsr:@std/internal@1": "1.0.5",
-    "jsr:@std/internal@^1.0.5": "1.0.5",
     "jsr:@std/io@0.223": "0.223.0",
     "jsr:@std/path@0.223": "0.223.0",
     "jsr:@std/path@1": "1.0.8",
@@ -27,9 +22,7 @@
     "jsr:@std/path@~0.225.2": "0.225.2",
     "jsr:@ts-morph/bootstrap@0.24": "0.24.0",
     "jsr:@ts-morph/common@0.24": "0.24.0",
-    "npm:ajv@*": "8.17.1",
     "npm:ajv@^8.17.1": "8.17.1",
-    "npm:punycode-esm@^1.0.14": "1.0.14",
     "npm:smtp-address-parser@^1.1.0": "1.1.0",
     "npm:uri-js-replace@^1.0.1": "1.0.1"
   },
@@ -61,39 +54,23 @@
     "@deno/graph@0.73.1": {
       "integrity": "cd69639d2709d479037d5ce191a422eabe8d71bb68b0098344f6b07411c84d41"
     },
-    "@silverbucket/iana-schemes@1.4.2": {
-      "integrity": "9b06d351b60769586a6e610e0225be5ed0c9098ad200f6462a27f7b740ed4164"
+    "@silverbucket/iana-schemes@1.4.4": {
+      "integrity": "49b3dc7ec4920e99a4ee3e62f2c6dd0b32b5b65a6c625a99a0e9cf5594ab2bbb"
     },
     "@std/assert@0.223.0": {
       "integrity": "eb8d6d879d76e1cc431205bd346ed4d88dc051c6366365b1af47034b0670be24"
     },
     "@std/assert@0.226.0": {
-      "integrity": "0dfb5f7c7723c18cec118e080fec76ce15b4c31154b15ad2bd74822603ef75b3",
-      "dependencies": [
-        "jsr:@std/internal@1"
-      ]
-    },
-    "@std/assert@1.0.11": {
-      "integrity": "2461ef3c368fe88bc60e186e7744a93112f16fd110022e113a0849e94d1c83c1",
-      "dependencies": [
-        "jsr:@std/internal@^1.0.5"
-      ]
+      "integrity": "0dfb5f7c7723c18cec118e080fec76ce15b4c31154b15ad2bd74822603ef75b3"
     },
     "@std/bytes@0.223.0": {
       "integrity": "84b75052cd8680942c397c2631318772b295019098f40aac5c36cead4cba51a8"
     },
-    "@std/expect@1.0.13": {
-      "integrity": "d8e236c7089cd9fcf5e6032f27dadc3db6349d0aee48c15bc71d717bca5baa42",
-      "dependencies": [
-        "jsr:@std/assert@^1.0.11",
-        "jsr:@std/internal@^1.0.5"
-      ]
-    },
     "@std/fmt@0.223.0": {
       "integrity": "6deb37794127dfc7d7bded2586b9fc6f5d50e62a8134846608baf71ffc1a5208"
     },
-    "@std/fmt@1.0.5": {
-      "integrity": "0cfab43364bc36650d83c425cd6d99910fc20c4576631149f0f987eddede1a4d"
+    "@std/fmt@1.0.6": {
+      "integrity": "a2c56a69a2369876ddb3ad6a500bb6501b5bad47bb3ea16bfb0c18974d2661fc"
     },
     "@std/fs@0.223.0": {
       "integrity": "3b4b0550b2c524cbaaa5a9170c90e96cbb7354e837ad1bdaf15fc9df1ae9c31c"
@@ -104,14 +81,11 @@
         "jsr:@std/path@1.0.0-rc.1"
       ]
     },
-    "@std/fs@1.0.11": {
-      "integrity": "ba674672693340c5ebdd018b4fe1af46cb08741f42b4c538154e97d217b55bdd",
+    "@std/fs@1.0.15": {
+      "integrity": "c083fb479889d6440d768e498195c3fc499d426fbf9a6592f98f53884d1d3f41",
       "dependencies": [
         "jsr:@std/path@^1.0.8"
       ]
-    },
-    "@std/internal@1.0.5": {
-      "integrity": "54a546004f769c1ac9e025abd15a76b6671ddc9687e2313b67376125650dc7ba"
     },
     "@std/io@0.223.0": {
       "integrity": "2d8c3c2ab3a515619b90da2c6ff5ea7b75a94383259ef4d02116b228393f84f1",
@@ -189,9 +163,6 @@
         "randexp"
       ]
     },
-    "punycode-esm@1.0.14": {
-      "integrity": "sha512-pKUd7mE81Sm2c363H+znT92N78Xjsb01gqboYj2fFmD+7HveGyVlpLzP38MrfbIcIN9KjN7LCzMcncW1tIsweA=="
-    },
     "railroad-diagrams@1.0.0": {
       "integrity": "sha512-cz93DjNeLY0idrCNOH6PviZGRN9GJhsdm9hpn1YCS879fj4W+x5IFJhhkRZcwVgMmFF7R82UA/7Oh+R8lLZg6A=="
     },
@@ -221,9 +192,8 @@
   "workspace": {
     "dependencies": [
       "jsr:@deno/dnt@~0.41.3",
-      "jsr:@silverbucket/iana-schemes@^1.4.2",
+      "jsr:@silverbucket/iana-schemes@^1.4.4",
       "npm:ajv@^8.17.1",
-      "npm:punycode-esm@^1.0.14",
       "npm:smtp-address-parser@^1.1.0",
       "npm:uri-js-replace@^1.0.1"
     ]

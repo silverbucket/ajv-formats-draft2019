@@ -12,8 +12,7 @@
   "license": "MIT",
   "imports": {
     "@deno/dnt": "jsr:@deno/dnt@^0.41.3",
-    "@silverbucket/iana-schemes": "jsr:@silverbucket/iana-schemes@^1.4.2",
-    "punycode-esm": "npm:punycode-esm@^1.0.14",
+    "@silverbucket/iana-schemes": "jsr:@silverbucket/iana-schemes@^1.4.4",
     "smtp-address-parser": "npm:smtp-address-parser@^1.1.0",
     "uri-js-replace": "npm:uri-js-replace@^1.0.1",
     "ajv": "npm:ajv@^8.17.1"

@@ -1,12 +1,11 @@
-import { assertEquals } from "jsr:@std/assert";
-import { expect } from "jsr:@std/expect";
+import { describe, expect, it } from "bun:test";
 import formats from "./formats/index.ts";
 import idn from "./idn.ts";
-import { Ajv } from "npm:ajv";
+import { Ajv } from "ajv";
 
 import apply from "./index.ts";
 
-Deno.test("add the types to ajv with the apply function", function () {
+it("add the types to ajv with the apply function", function () {
   const ajv = new Ajv();
   apply(ajv);
   expect(ajv.formats.duration).toBeTruthy();
@@ -16,7 +15,7 @@ Deno.test("add the types to ajv with the apply function", function () {
   expect(ajv.formats["iri-reference"]).toBeTruthy();
 });
 
-Deno.test("add the types to ajv as options to Ajv instances", function () {
+it("add the types to ajv as options to Ajv instances", function () {
   const ajv = new Ajv({ formats });
   expect(ajv.formats.duration).toBeTruthy();
   expect(ajv.formats.iri).toBeTruthy();
@@ -25,7 +24,7 @@ Deno.test("add the types to ajv as options to Ajv instances", function () {
   expect(ajv.formats["iri-reference"]).toBeTruthy();
 });
 
-Deno.test("accept valid IRIs", function () {
+it("accept valid IRIs", function () {
   const ajv = new Ajv();
   apply(ajv);
   const schema = {
@@ -52,7 +51,7 @@ Deno.test("accept valid IRIs", function () {
   expect(validate("http://www.w3.org/2004/02/skos/core#Concept")).toBeTruthy();
 });
 
-Deno.test("reject invalid IRIs", function () {
+it("reject invalid IRIs", function () {
   const ajv = new Ajv();
   apply(ajv);
 
@@ -70,7 +69,7 @@ Deno.test("reject invalid IRIs", function () {
   expect(!validate("afile.svg#anelement")).toBeTruthy();
 });
 
-Deno.test("accept a valid duration", function () {
+it("accept a valid duration", function () {
   const ajv = new Ajv();
   apply(ajv);
 
@@ -82,7 +81,7 @@ Deno.test("accept a valid duration", function () {
   expect(validate("P1Y2M4DT20H44M12.67S")).toBeTruthy();
 });
 
-Deno.test("reject an invalid duration", function () {
+it("reject an invalid duration", function () {
   const ajv = new Ajv();
   apply(ajv);
 
@@ -94,7 +93,7 @@ Deno.test("reject an invalid duration", function () {
   expect(!validate("10 seconds")).toBeTruthy();
 });
 
-Deno.test("accept valid idn-emails", function () {
+it("accept valid idn-emails", function () {
   const ajv = new Ajv();
   apply(ajv);
 
@@ -111,7 +110,7 @@ Deno.test("accept valid idn-emails", function () {
   expect(validate('"John Doe"@example.com')).toBeTruthy();
 });
 
-Deno.test("reject invalid idn-emails", function () {
+it("reject invalid idn-emails", function () {
   const ajv = new Ajv();
   apply(ajv);
 
@@ -124,7 +123,7 @@ Deno.test("reject invalid idn-emails", function () {
   expect(!validate("valid@somewhere.com?asdf")).toBeTruthy();
 });
 
-Deno.test("accept valid international domains", function () {
+it("accept valid international domains", function () {
   const ajv = new Ajv();
   apply(ajv);
 
@@ -170,7 +169,7 @@ Deno.test("accept valid international domains", function () {
   expect(validate("öbb.at")).toBeTruthy();
 });
 
-Deno.test("reject invalid international domains", function () {
+it("reject invalid international domains", function () {
   const ajv = new Ajv();
   apply(ajv);
 
@@ -206,7 +205,7 @@ Deno.test("reject invalid international domains", function () {
   expect(!validate("http://google.com")).toBeTruthy();
 });
 
-Deno.test("accept valid IRI-reference", function () {
+it("accept valid IRI-reference", function () {
   const ajv = new Ajv();
   apply(ajv);
 
@@ -252,7 +251,7 @@ Deno.test("accept valid IRI-reference", function () {
   expect(validate("valid@email.format")).toBeTruthy();
 });
 
-Deno.test("reject invalid IRI-reference", function () {
+it("reject invalid IRI-reference", function () {
   const ajv = new Ajv();
   apply(ajv);
 
@@ -270,14 +269,14 @@ Deno.test("reject invalid IRI-reference", function () {
   //expect(!validate("mailto:invalid.format"));
 });
 
-Deno.test("draft07 should include the correct formats", function () {
+it("draft07 should include the correct formats", function () {
   expect(idn["idn-hostname"]).toBeTruthy();
   expect(idn["idn-email"]).toBeTruthy();
   expect(idn["iri"]).toBeTruthy();
   expect(idn["iri-reference"]).toBeTruthy();
 });
 
-Deno.test("add the idn types to ajv as options to Ajv instances", function () {
+it("add the idn types to ajv as options to Ajv instances", function () {
   const ajv = new Ajv({ formats: idn });
   expect(!ajv.formats.duration).toBeTruthy();
   expect(ajv.formats.iri).toBeTruthy();
@@ -286,7 +285,7 @@ Deno.test("add the idn types to ajv as options to Ajv instances", function () {
   expect(ajv.formats["iri-reference"]).toBeTruthy();
 });
 
-Deno.test("it should be possible to cherry pick formats to install", function () {
+it("it should be possible to cherry pick formats to install", function () {
   const ajv = new Ajv({
     formats: {
       duration: formats.duration,
@@ -301,7 +300,7 @@ Deno.test("it should be possible to cherry pick formats to install", function ()
   expect(!ajv.formats["iri-reference"]).toBeTruthy();
 });
 
-Deno.test("it should be possible to specify formats to install", function () {
+it("it should be possible to specify formats to install", function () {
   const ajv = new Ajv();
   apply(ajv, { formats: ["idn-email", "iri"] });
   expect(!ajv.formats.duration).toBeTruthy();
