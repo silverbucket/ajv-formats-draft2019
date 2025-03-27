@@ -10,16 +10,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        deno-version: [2.1]
-
     steps:
       - uses: actions/checkout@v4
 
-      - name: Use Deno Version ${{ matrix.deno-version }}
-        uses: denolib/setup-deno@v2
+      - name: Use Bun latest
+        uses: oven-sh/setup-bun@v2.0.1
         with:
-          deno-version: ${{ matrix.deno-version }}
-      - run: deno fmt --check
-      - run: deno test
+          bun-version: latest
+      - run: bun test src/
+      - run: bun run build
