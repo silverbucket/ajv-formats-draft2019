@@ -10,7 +10,8 @@
   "bugs": {
     "url": "https://github.com/silverbucket/ajv-formats-draft2019/issues"
   },
-  "main": "./index.ts",
+  "main": "./dist/index.js",
+  "types": "./src/index.d.ts",
   "scripts": {
     "build": "bun test src/ && rm -r dist/; bun run build.js && bun test dist/index.test.js"
   },
@@ -18,6 +19,9 @@
     "@silverbucket/iana-schemes": "^1.4.4",
     "uri-js-replace": "^1.0.1",
     "smtp-address-parser": "^1.1.0"
+  },
+  "peerDependencies": {
+    "ajv": "*"
   },
   "devDependencies": {
     "@types/node": "^20.9.0",
